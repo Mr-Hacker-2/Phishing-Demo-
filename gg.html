@@ -3,377 +3,349 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>⚠️ PHISHING DEMO — Cybersecurity Awareness</title>
+  <title>Roblox Free Robux - TOTALLY LEGIT 🎉</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+    * { font-family: 'Nunito', sans-serif; }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
     }
 
-    /* ── TOP WARNING BANNER ── */
-    .warning-banner {
-      width: 100%;
-      max-width: 700px;
-      background: #ff4444;
-      color: white;
-      text-align: center;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 8px 8px 0 0;
-      letter-spacing: 0.5px;
+    /* ── PHISHING BANNER ── */
+    .phishing-banner {
+      background: repeating-linear-gradient(
+        45deg,
+        #ff0000,
+        #ff0000 10px,
+        #ffff00 10px,
+        #ffff00 20px
+      );
+      animation: flash 1s infinite;
     }
 
-    /* ── BROWSER CHROME ── */
-    .browser-frame {
-      width: 100%;
-      max-width: 700px;
-      border: 3px solid #ff4444;
-      border-top: none;
-      border-radius: 0 0 12px 12px;
-      overflow: hidden;
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
     }
 
-    .browser-bar {
-      background: #e0e0e0;
-      padding: 6px 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 1px solid #ccc;
+    .robux-badge {
+      animation: bounce 1s infinite alternate;
     }
-    .dots { display: flex; gap: 5px; }
-    .dot {
-      width: 12px; height: 12px; border-radius: 50%;
+
+    @keyframes bounce {
+      from { transform: scale(1) rotate(-3deg); }
+      to   { transform: scale(1.08) rotate(3deg); }
     }
-    .dot.red   { background: #ff5f57; }
-    .dot.yellow{ background: #ffbd2e; }
-    .dot.green { background: #28c840; }
+
+    .sparkle {
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* suspicious URL bar */
     .url-bar {
-      flex: 1;
-      background: white;
-      border: 1px solid #bbb;
-      border-radius: 4px;
-      padding: 4px 12px;
-      font-size: 13px;
-      color: #cc0000;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .url-bar .lock { color: #999; font-size: 14px; }
-
-    .url-flag {
-      background: #fff3cd;
-      border-left: 4px solid #f0ad4e;
-      padding: 8px 14px;
-      font-size: 13px;
-      color: #7a4f00;
-    }
-
-    /* ── FAKE PAGE BODY ── */
-    .fake-page {
-      background: #1b2838;
-      padding: 30px 24px;
-      text-align: center;
-    }
-    .fake-logo {
-      font-size: 36px;
-      font-weight: 900;
-      color: #00b4ff;
-      letter-spacing: 2px;
-      margin-bottom: 4px;
-    }
-    .fake-tagline {
-      font-size: 11px;
-      color: #888;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    .offer-card {
-      background: rgba(0, 180, 255, 0.08);
-      border: 1px solid rgba(0, 180, 255, 0.3);
-      border-radius: 12px;
-      padding: 24px;
-      max-width: 360px;
-      margin: 0 auto;
-    }
-    .offer-icon { font-size: 40px; margin-bottom: 10px; }
-    .offer-title {
-      color: #ffd700;
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-    .offer-desc {
-      color: #ccc;
-      font-size: 14px;
-      margin-bottom: 18px;
-      line-height: 1.5;
-    }
-    .timer {
-      background: rgba(255, 0, 0, 0.2);
-      border: 1px solid #ff4444;
-      border-radius: 6px;
-      padding: 7px 14px;
-      color: #ff8888;
-      font-size: 13px;
-      margin-bottom: 18px;
-      font-weight: bold;
-    }
-
-    .fake-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      text-align: left;
-    }
-    .fake-form input {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 6px;
-      border: 1px solid #444;
-      background: #0d1117;
-      color: white;
-      font-size: 14px;
-      outline: none;
-    }
-    .fake-form input:focus { border-color: #00b4ff; }
-    .submit-btn {
-      background: #00b4ff;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 4px;
-      transition: background 0.2s;
-    }
-    .submit-btn:hover { background: #0090cc; }
-    .fine-print {
-      color: #666;
-      font-size: 11px;
-      margin-top: 10px;
-    }
-
-    /* ── RED FLAGS SECTION ── */
-    .red-flags {
-      width: 100%;
-      max-width: 700px;
-      margin-top: 20px;
-    }
-    .red-flags h2 {
-      font-size: 16px;
-      color: #333;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-    .flags-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 10px;
-    }
-    .flag-card {
-      background: white;
-      border: 1px solid #f7c1c1;
-      border-left: 4px solid #e24b4a;
-      border-radius: 8px;
-      padding: 12px;
-    }
-    .flag-card .flag-title {
-      font-size: 13px;
-      font-weight: bold;
-      color: #a32d2d;
-      margin-bottom: 5px;
-    }
-    .flag-card p {
+      background: #2b2b2b;
+      border-radius: 20px;
+      font-family: monospace;
       font-size: 12px;
-      color: #555;
-      line-height: 1.5;
     }
 
-    .footer-note {
-      width: 100%;
-      max-width: 700px;
-      margin-top: 12px;
-      background: #e8e8e8;
+    /* Red flags labels */
+    .red-flag {
+      background: rgba(255, 50, 50, 0.85);
+      border: 2px dashed #ff0000;
       border-radius: 8px;
-      padding: 10px 16px;
-      font-size: 12px;
-      color: #555;
-      text-align: center;
+      animation: flagPulse 1.5s ease-in-out infinite;
+      cursor: help;
     }
 
-    /* ── POPUP OVERLAY ── */
-    .overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 100;
-      align-items: center;
-      justify-content: center;
+    @keyframes flagPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,0,0,0.6); }
+      50%       { box-shadow: 0 0 10px 4px rgba(255,0,0,0.3); }
     }
-    .overlay.active { display: flex; }
-    .popup {
-      background: white;
-      border-radius: 12px;
-      padding: 30px 24px;
-      max-width: 400px;
-      text-align: center;
-      border: 3px solid #ff4444;
+
+    .modal-overlay {
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
     }
-    .popup h2 { color: #ff4444; margin-bottom: 10px; font-size: 22px; }
-    .popup p { color: #444; font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
-    .popup button {
-      background: #ff4444;
-      color: white;
-      border: none;
-      padding: 10px 24px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
+
+    .password-reveal {
+      background: linear-gradient(135deg, #ff4444, #ff0000);
+      border: 3px dashed #ffff00;
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col">
 
-  <!-- WARNING -->
-  <div class="warning-banner">
-    ⚠️ CYBERSECURITY AWARENESS DEMO — THIS IS A FAKE PHISHING PAGE ⚠️
+  <!-- ═══════════════════════════════════════════════════
+       🚨 CYBERSECURITY AWARENESS BANNER (always visible)
+  ═══════════════════════════════════════════════════ -->
+  <div class="phishing-banner text-black font-black text-center py-2 px-4 text-sm md:text-base z-50 sticky top-0">
+    ⚠️ CYBERSECURITY AWARENESS DEMO — THIS IS A FAKE PHISHING SITE — DO NOT ENTER REAL CREDENTIALS ⚠️
   </div>
 
-  <!-- BROWSER FRAME -->
-  <div class="browser-frame">
-
-    <!-- Fake browser bar -->
-    <div class="browser-bar">
-      <div class="dots">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
-      </div>
-      <div class="url-bar">
-        <span class="lock">🔓</span>
-        free-r0blox-robux-giveaway.net/totally-real
-      </div>
-    </div>
-
-    <!-- URL red flag callout -->
-    <div class="url-flag">
-      🚩 <strong>Red flag #1:</strong> This is NOT roblox.com — it's a lookalike domain. Notice the "0" instead of "o".
-    </div>
-
-    <!-- FAKE ROBLOX PAGE -->
-    <div class="fake-page">
-      <div class="fake-logo">ROBLOX</div>
-      <div class="fake-tagline">Totally Official Website</div>
-
-      <div class="offer-card">
-        <div class="offer-icon">🎉</div>
-        <div class="offer-title">FREE 10,000 ROBUX!</div>
-        <div class="offer-desc">
-          You've been SELECTED for our EXCLUSIVE giveaway!<br>
-          Sign in NOW before this offer expires!
-        </div>
-        <div class="timer" id="timer">⏰ Offer expires in: <span id="countdown">09:59</span></div>
-
-        <div class="fake-form">
-          <input type="text"     placeholder="Roblox Username" id="username" autocomplete="off" />
-          <input type="password" placeholder="Password"        id="password" autocomplete="off" />
-          <input type="email"    placeholder="Email Address"   id="email"    autocomplete="off" />
-          <button class="submit-btn" onclick="showPopup()">CLAIM MY FREE ROBUX →</button>
-        </div>
-        <div class="fine-print">By signing in you agree to share all account info with us 👍</div>
+  <!-- ═══════════════════════════
+       FAKE BROWSER URL BAR
+  ═══════════════════════════ -->
+  <div class="flex justify-center mt-3 px-4">
+    <div class="url-bar flex items-center gap-2 px-4 py-2 w-full max-w-2xl">
+      <span class="text-red-400 text-lg">🔓</span>
+      <span class="text-gray-400">http://</span>
+      <span class="text-yellow-300 font-bold">r0bl0x-free-robux-legit-totally-real.sketchy-site.xyz</span>
+      <div class="ml-auto">
+        <span class="red-flag text-white text-xs px-2 py-1 font-bold" title="RED FLAG: Fake/suspicious URL! Real Roblox uses https://www.roblox.com">
+          🚩 FAKE URL!
+        </span>
       </div>
     </div>
   </div>
 
-  <!-- RED FLAGS -->
-  <div class="red-flags">
-    <h2>🔍 Spot the Red Flags</h2>
-    <div class="flags-grid">
-      <div class="flag-card">
-        <div class="flag-title">🚩 Fake domain</div>
-        <p>Real site is roblox.com. Attackers use lookalike URLs with swapped characters to fool victims.</p>
-      </div>
-      <div class="flag-card">
-        <div class="flag-title">🚩 Too-good offer</div>
-        <p>Free currency giveaways are bait. Legitimate companies never give away free in-game currency like this.</p>
-      </div>
-      <div class="flag-card">
-        <div class="flag-title">🚩 Fake urgency</div>
-        <p>Countdown timers pressure you to act before thinking. This is a classic manipulation tactic.</p>
-      </div>
-      <div class="flag-card">
-        <div class="flag-title">🚩 Password harvesting</div>
-        <p>Entering your credentials here hands your account directly to the attacker.</p>
-      </div>
-      <div class="flag-card">
-        <div class="flag-title">🚩 Suspicious fine print</div>
-        <p>"Agree to share all account info" hidden at the bottom — attackers hide their real intentions.</p>
-      </div>
-      <div class="flag-card">
-        <div class="flag-title">🚩 No padlock / HTTPS</div>
-        <p>The unlocked padlock icon means no secure connection. Never enter sensitive info on such sites.</p>
-      </div>
-    </div>
-  </div>
+  <!-- ═══════════════════════════
+       MAIN FAKE SITE CONTENT
+  ═══════════════════════════ -->
+  <main class="flex-1 flex flex-col items-center px-4 py-6 gap-6">
 
-  <div class="footer-note">
-    This is a cybersecurity awareness demo. No data entered here is stored or transmitted anywhere.
-  </div>
+    <!-- Logo + Header -->
+    <div class="text-center">
+      <div class="relative inline-block">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg"
+          alt="Roblox Logo"
+          class="w-16 h-16 mx-auto invert"
+          onerror="this.outerHTML='<div class=\'text-6xl\'>🎮</div>'"
+        />
+        <span class="absolute -top-1 -right-1 text-xl sparkle">✨</span>
+      </div>
+      <h1 class="text-white font-black text-4xl md:text-5xl mt-2 tracking-tight">
+        <span class="text-red-500">R</span>OBLOX
+      </h1>
 
-  <!-- POPUP after clicking submit -->
-  <div class="overlay" id="overlay">
-    <div class="popup">
-      <h2>⚠️ You were phished!</h2>
-      <p>
-        If this were a real attack, your <strong>username, password, and email</strong>
-        would now be in the hands of a cybercriminal.<br><br>
-        Always check the URL before entering your credentials, and never trust
-        offers that seem too good to be true.
+      <!-- Red flag: Too-good-to-be-true offer -->
+      <div class="red-flag px-3 py-1 mt-2 inline-block" title="RED FLAG: Nobody gives away free Robux for nothing!">
+        🚩 RED FLAG: Unrealistic free offer!
+      </div>
+
+      <div class="robux-badge mt-4 bg-yellow-400 text-black font-black text-2xl md:text-3xl px-6 py-3 rounded-2xl shadow-2xl inline-block">
+        🎉 FREE 10,000 ROBUX GIVEAWAY!! 🎉
+      </div>
+      <p class="text-green-400 font-bold text-lg mt-2 animate-pulse">
+        ✅ 100% FREE • ✅ INSTANT • ✅ TOTALLY LEGIT!!
       </p>
-      <button onclick="closePopup()">Got it — I'll be more careful!</button>
+    </div>
+
+    <!-- Fake Testimonials (Red Flag) -->
+    <div class="card rounded-2xl p-4 w-full max-w-2xl">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-yellow-400 font-black text-sm">⭐⭐⭐⭐⭐ REVIEWS</span>
+        <div class="red-flag text-white text-xs px-2 py-1 ml-auto font-bold" title="RED FLAG: Fake reviews to build false trust!">
+          🚩 Fake reviews!
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-gray-200">
+        <div class="bg-white/10 rounded-xl p-3">
+          <p class="font-bold text-yellow-300">xX_GamerPro_Xx</p>
+          <p>"I got 10,000 Robux instantly!! SO REAL!!"</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-3">
+          <p class="font-bold text-yellow-300">RobloxFan2009</p>
+          <p>"Best site ever, totally not a scam 👍"</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-3">
+          <p class="font-bold text-yellow-300">NotABot_123</p>
+          <p>"Worked in 2 minutes! Give them ur password!"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ SIGN-UP FORM ═══════ -->
+    <div class="card rounded-2xl p-6 w-full max-w-md shadow-2xl border border-yellow-400/30">
+      <h2 class="text-white font-black text-2xl text-center mb-1">
+        🔑 Sign In to Claim Robux!
+      </h2>
+      <p class="text-gray-400 text-center text-sm mb-5">Enter your Roblox credentials below</p>
+
+      <!-- Red flag: Asking for password on a non-official site -->
+      <div class="red-flag text-white text-xs px-3 py-2 mb-4 text-center font-bold" title="RED FLAG: Legitimate services NEVER ask for your password to give you rewards!">
+        🚩 RED FLAG: Why does a giveaway need your password?!
+      </div>
+
+      <form id="phishForm" onsubmit="handleSubmit(event)" class="flex flex-col gap-4">
+
+        <div>
+          <label class="text-gray-300 text-sm font-bold mb-1 block">Roblox Username</label>
+          <input
+            id="usernameInput"
+            type="text"
+            placeholder="Enter your username..."
+            class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="text-gray-300 text-sm font-bold mb-1 block">Roblox Password</label>
+          <div class="relative">
+            <input
+              id="passwordInput"
+              type="password"
+              placeholder="Enter your password..."
+              class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition pr-12"
+              required
+            />
+            <button type="button" onclick="togglePassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white text-xl" title="Show/hide password">
+              👁️
+            </button>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="bg-yellow-400 hover:bg-yellow-300 text-black font-black text-lg py-3 rounded-xl transition transform hover:scale-105 shadow-lg"
+        >
+          🎁 CLAIM MY FREE ROBUX NOW!!
+        </button>
+
+        <p class="text-gray-500 text-xs text-center">
+          By clicking above you agree to give us all your data, your firstborn, and your Roblox account forever. (Definitely read this.)
+        </p>
+      </form>
+    </div>
+
+    <!-- Urgency countdown (Red Flag) -->
+    <div class="card rounded-2xl px-6 py-4 w-full max-w-md text-center border border-red-500/50">
+      <div class="flex items-center justify-center gap-2 mb-2">
+        <span class="text-red-400 font-black text-sm animate-pulse">⏳ OFFER EXPIRES IN:</span>
+        <div class="red-flag text-white text-xs px-2 py-1 font-bold" title="RED FLAG: Fake countdown timers create panic so you don't think carefully!">
+          🚩 Fake urgency!
+        </div>
+      </div>
+      <div id="countdown" class="text-red-400 font-black text-3xl tracking-widest">
+        09:59
+      </div>
+      <p class="text-gray-400 text-xs mt-1">Only <span class="text-yellow-300 font-bold">7 spots</span> left! (This number never actually changes.)</p>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       🚨 PHISHING REVEAL MODAL
+  ═══════════════════════════════════════ -->
+  <div id="revealModal" class="fixed inset-0 modal-overlay z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-gray-900 rounded-3xl max-w-lg w-full p-8 border-4 border-red-500 shadow-2xl relative">
+
+      <!-- Warning header -->
+      <div class="text-center mb-6">
+        <div class="text-7xl mb-2">🎣</div>
+        <h2 class="text-red-400 font-black text-3xl">YOU JUST GOT PHISHED!</h2>
+        <p class="text-gray-300 mt-2 text-sm">This is what a real attacker would have stolen:</p>
+      </div>
+
+      <!-- Stolen credentials display -->
+      <div class="password-reveal rounded-2xl p-5 mb-6 text-center">
+        <p class="text-yellow-300 font-black text-sm mb-3 uppercase tracking-widest">⚠️ Captured Credentials ⚠️</p>
+        <div class="bg-black/40 rounded-xl p-3 mb-3">
+          <p class="text-gray-400 text-xs font-bold uppercase mb-1">Username</p>
+          <p id="revealUsername" class="text-white font-black text-xl break-all">—</p>
+        </div>
+        <div class="bg-black/40 rounded-xl p-3">
+          <p class="text-gray-400 text-xs font-bold uppercase mb-1">Password</p>
+          <p id="revealPassword" class="text-yellow-300 font-black text-2xl break-all tracking-widest">—</p>
+        </div>
+        <p class="text-white text-xs mt-3 font-bold">
+          A real attacker now has this. Your account is <span class="text-red-300">COMPROMISED</span>.
+        </p>
+      </div>
+
+      <!-- What to learn -->
+      <div class="bg-white/5 rounded-2xl p-4 mb-5 border border-white/10">
+        <p class="text-yellow-400 font-black mb-3 text-center">🛡️ How to Spot Phishing:</p>
+        <ul class="text-gray-300 text-sm space-y-2">
+          <li>🔴 <strong class="text-white">Fake URL</strong> — Real Roblox is always <span class="text-green-400">roblox.com</span></li>
+          <li>🔴 <strong class="text-white">Suspicious offer</strong> — No one gives free Robux for your password</li>
+          <li>🔴 <strong class="text-white">Urgency tactics</strong> — Fake countdowns push you to act fast</li>
+          <li>🔴 <strong class="text-white">Fake reviews</strong> — Built to make the scam look trustworthy</li>
+          <li>🔴 <strong class="text-white">Asking for credentials</strong> — Legit sites NEVER need your password to reward you</li>
+        </ul>
+      </div>
+
+      <button
+        onclick="closeModal()"
+        class="w-full bg-green-500 hover:bg-green-400 text-black font-black py-3 rounded-xl text-lg transition transform hover:scale-105"
+      >
+        ✅ I understand — I'll be more careful!
+      </button>
+
+      <p class="text-gray-600 text-xs text-center mt-3">
+        ⚠️ DEMO ONLY — No data was transmitted or stored anywhere.
+      </p>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-600 text-xs py-4 border-t border-white/5">
+    ⚠️ CYBERSECURITY AWARENESS DEMO — Created for educational purposes only — No real data is collected or stored.
+  </footer>
 
   <script>
-    // Countdown timer
+    // ── Countdown Timer (fake, loops) ──
     let seconds = 599;
     const countdownEl = document.getElementById('countdown');
-    const interval = setInterval(() => {
-      if (seconds <= 0) { clearInterval(interval); countdownEl.textContent = "EXPIRED"; return; }
-      seconds--;
-      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
-      const s = String(seconds % 60).padStart(2, '0');
+    setInterval(() => {
+      if (seconds <= 0) seconds = 599;
+      const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+      const s = (seconds % 60).toString().padStart(2, '0');
       countdownEl.textContent = `${m}:${s}`;
+      seconds--;
     }, 1000);
 
-    function showPopup() {
-      document.getElementById('overlay').classList.add('active');
+    // ── Toggle password visibility ──
+    function togglePassword() {
+      const pw = document.getElementById('passwordInput');
+      pw.type = pw.type === 'password' ? 'text' : 'password';
     }
-    function closePopup() {
-      document.getElementById('overlay').classList.remove('active');
-      // Clear the form
-      document.getElementById('username').value = '';
-      document.getElementById('password').value = '';
-      document.getElementById('email').value = '';
-    }
-  </script>
 
+    // ── Form submit handler ──
+    function handleSubmit(e) {
+      e.preventDefault();
+      const username = document.getElementById('usernameInput').value;
+      const password = document.getElementById('passwordInput').value;
+
+      document.getElementById('revealUsername').textContent = username || '(empty)';
+      document.getElementById('revealPassword').textContent = password || '(empty)';
+
+      // Show modal
+      const modal = document.getElementById('revealModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    // ── Close modal ──
+    function closeModal() {
+      const modal = document.getElementById('revealModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      // Reset form
+      document.getElementById('phishForm').reset();
+    }
+
+    // ── Close modal on background click ──
+    document.getElementById('revealModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+  </script>
 </body>
 </html>
