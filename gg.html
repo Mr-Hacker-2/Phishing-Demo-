@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>⚠️ PHISHING DEMO — Cybersecurity Awareness</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* ── TOP WARNING BANNER ── */
+    .warning-banner {
+      width: 100%;
+      max-width: 700px;
+      background: #ff4444;
+      color: white;
+      text-align: center;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px 8px 0 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── BROWSER CHROME ── */
+    .browser-frame {
+      width: 100%;
+      max-width: 700px;
+      border: 3px solid #ff4444;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+    }
+
+    .browser-bar {
+      background: #e0e0e0;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    .dots { display: flex; gap: 5px; }
+    .dot {
+      width: 12px; height: 12px; border-radius: 50%;
+    }
+    .dot.red   { background: #ff5f57; }
+    .dot.yellow{ background: #ffbd2e; }
+    .dot.green { background: #28c840; }
+    .url-bar {
+      flex: 1;
+      background: white;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      padding: 4px 12px;
+      font-size: 13px;
+      color: #cc0000;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .url-bar .lock { color: #999; font-size: 14px; }
+
+    .url-flag {
+      background: #fff3cd;
+      border-left: 4px solid #f0ad4e;
+      padding: 8px 14px;
+      font-size: 13px;
+      color: #7a4f00;
+    }
+
+    /* ── FAKE PAGE BODY ── */
+    .fake-page {
+      background: #1b2838;
+      padding: 30px 24px;
+      text-align: center;
+    }
+    .fake-logo {
+      font-size: 36px;
+      font-weight: 900;
+      color: #00b4ff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .fake-tagline {
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .offer-card {
+      background: rgba(0, 180, 255, 0.08);
+      border: 1px solid rgba(0, 180, 255, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+    .offer-icon { font-size: 40px; margin-bottom: 10px; }
+    .offer-title {
+      color: #ffd700;
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .offer-desc {
+      color: #ccc;
+      font-size: 14px;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .timer {
+      background: rgba(255, 0, 0, 0.2);
+      border: 1px solid #ff4444;
+      border-radius: 6px;
+      padding: 7px 14px;
+      color: #ff8888;
+      font-size: 13px;
+      margin-bottom: 18px;
+      font-weight: bold;
+    }
+
+    .fake-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+    }
+    .fake-form input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background: #0d1117;
+      color: white;
+      font-size: 14px;
+      outline: none;
+    }
+    .fake-form input:focus { border-color: #00b4ff; }
+    .submit-btn {
+      background: #00b4ff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+    .submit-btn:hover { background: #0090cc; }
+    .fine-print {
+      color: #666;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+
+    /* ── RED FLAGS SECTION ── */
+    .red-flags {
+      width: 100%;
+      max-width: 700px;
+      margin-top: 20px;
+    }
+    .red-flags h2 {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .flags-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+    .flag-card {
+      background: white;
+      border: 1px solid #f7c1c1;
+      border-left: 4px solid #e24b4a;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .flag-card .flag-title {
+      font-size: 13px;
+      font-weight: bold;
+      color: #a32d2d;
+      margin-bottom: 5px;
+    }
+    .flag-card p {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .footer-note {
+      width: 100%;
+      max-width: 700px;
+      margin-top: 12px;
+      background: #e8e8e8;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 12px;
+      color: #555;
+      text-align: center;
+    }
+
+    /* ── POPUP OVERLAY ── */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .overlay.active { display: flex; }
+    .popup {
+      background: white;
+      border-radius: 12px;
+      padding: 30px 24px;
+      max-width: 400px;
+      text-align: center;
+      border: 3px solid #ff4444;
+    }
+    .popup h2 { color: #ff4444; margin-bottom: 10px; font-size: 22px; }
+    .popup p { color: #444; font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+    .popup button {
+      background: #ff4444;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WARNING -->
+  <div class="warning-banner">
+    ⚠️ CYBERSECURITY AWARENESS DEMO — THIS IS A FAKE PHISHING PAGE ⚠️
+  </div>
+
+  <!-- BROWSER FRAME -->
+  <div class="browser-frame">
+
+    <!-- Fake browser bar -->
+    <div class="browser-bar">
+      <div class="dots">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <div class="url-bar">
+        <span class="lock">🔓</span>
+        free-r0blox-robux-giveaway.net/totally-real
+      </div>
+    </div>
+
+    <!-- URL red flag callout -->
+    <div class="url-flag">
+      🚩 <strong>Red flag #1:</strong> This is NOT roblox.com — it's a lookalike domain. Notice the "0" instead of "o".
+    </div>
+
+    <!-- FAKE ROBLOX PAGE -->
+    <div class="fake-page">
+      <div class="fake-logo">ROBLOX</div>
+      <div class="fake-tagline">Totally Official Website</div>
+
+      <div class="offer-card">
+        <div class="offer-icon">🎉</div>
+        <div class="offer-title">FREE 10,000 ROBUX!</div>
+        <div class="offer-desc">
+          You've been SELECTED for our EXCLUSIVE giveaway!<br>
+          Sign in NOW before this offer expires!
+        </div>
+        <div class="timer" id="timer">⏰ Offer expires in: <span id="countdown">09:59</span></div>
+
+        <div class="fake-form">
+          <input type="text"     placeholder="Roblox Username" id="username" autocomplete="off" />
+          <input type="password" placeholder="Password"        id="password" autocomplete="off" />
+          <input type="email"    placeholder="Email Address"   id="email"    autocomplete="off" />
+          <button class="submit-btn" onclick="showPopup()">CLAIM MY FREE ROBUX →</button>
+        </div>
+        <div class="fine-print">By signing in you agree to share all account info with us 👍</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RED FLAGS -->
+  <div class="red-flags">
+    <h2>🔍 Spot the Red Flags</h2>
+    <div class="flags-grid">
+      <div class="flag-card">
+        <div class="flag-title">🚩 Fake domain</div>
+        <p>Real site is roblox.com. Attackers use lookalike URLs with swapped characters to fool victims.</p>
+      </div>
+      <div class="flag-card">
+        <div class="flag-title">🚩 Too-good offer</div>
+        <p>Free currency giveaways are bait. Legitimate companies never give away free in-game currency like this.</p>
+      </div>
+      <div class="flag-card">
+        <div class="flag-title">🚩 Fake urgency</div>
+        <p>Countdown timers pressure you to act before thinking. This is a classic manipulation tactic.</p>
+      </div>
+      <div class="flag-card">
+        <div class="flag-title">🚩 Password harvesting</div>
+        <p>Entering your credentials here hands your account directly to the attacker.</p>
+      </div>
+      <div class="flag-card">
+        <div class="flag-title">🚩 Suspicious fine print</div>
+        <p>"Agree to share all account info" hidden at the bottom — attackers hide their real intentions.</p>
+      </div>
+      <div class="flag-card">
+        <div class="flag-title">🚩 No padlock / HTTPS</div>
+        <p>The unlocked padlock icon means no secure connection. Never enter sensitive info on such sites.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    This is a cybersecurity awareness demo. No data entered here is stored or transmitted anywhere.
+  </div>
+
+  <!-- POPUP after clicking submit -->
+  <div class="overlay" id="overlay">
+    <div class="popup">
+      <h2>⚠️ You were phished!</h2>
+      <p>
+        If this were a real attack, your <strong>username, password, and email</strong>
+        would now be in the hands of a cybercriminal.<br><br>
+        Always check the URL before entering your credentials, and never trust
+        offers that seem too good to be true.
+      </p>
+      <button onclick="closePopup()">Got it — I'll be more careful!</button>
+    </div>
+  </div>
+
+  <script>
+    // Countdown timer
+    let seconds = 599;
+    const countdownEl = document.getElementById('countdown');
+    const interval = setInterval(() => {
+      if (seconds <= 0) { clearInterval(interval); countdownEl.textContent = "EXPIRED"; return; }
+      seconds--;
+      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const s = String(seconds % 60).padStart(2, '0');
+      countdownEl.textContent = `${m}:${s}`;
+    }, 1000);
+
+    function showPopup() {
+      document.getElementById('overlay').classList.add('active');
+    }
+    function closePopup() {
+      document.getElementById('overlay').classList.remove('active');
+      // Clear the form
+      document.getElementById('username').value = '';
+      document.getElementById('password').value = '';
+      document.getElementById('email').value = '';
+    }
+  </script>
+
+</body>
+</html>
