@@ -181,34 +181,36 @@
         const captureLog = document.getElementById('capture-log');
         const successModal = document.getElementById('success-modal');
 
-        // Real-time capturing demo (Keylogger simulation)
-        usernameInput.addEventListener('input', () => updateConsole());
-        passwordInput.addEventListener('input', () => updateConsole());
+        // Safe awareness simulation: never read, display, save, or transmit field contents.
+        usernameInput.addEventListener('input', updateConsole);
+        passwordInput.addEventListener('input', updateConsole);
 
         function updateConsole() {
-            const userVal = usernameInput.value || '...';
-            const passVal = passwordInput.value || '...';
-            
-            // Masking some of it for effect but showing the reality
-            captureLog.innerHTML = `
-                <div class="text-yellow-400">>> INCOMING PACKET RECEIVED</div>
-                <div class="pl-4">TARGET_USER: <span class="text-white">${userVal}</span></div>
-                <div class="pl-4">TARGET_PASS: <span class="text-white font-bold">${passVal}</span></div>
-                <div class="pl-4">IP_ADDR: 192.168.1.45 (Spoofed)</div>
-                <div class="pl-4">BROWSER: Chrome/Win11</div>
-            `;
+            captureLog.textContent = '';
+            const notice = document.createElement('div');
+            notice.className = 'text-yellow-300';
+            notice.textContent = 'TRAINING MODE: field interaction detected. Input contents are not collected.';
+            captureLog.appendChild(notice);
+
+            const privacy = document.createElement('div');
+            privacy.className = 'pl-4 text-green-300';
+            privacy.textContent = 'NETWORK: no credential submission';
+            captureLog.appendChild(privacy);
+
+            const storage = document.createElement('div');
+            storage.className = 'pl-4 text-green-300';
+            storage.textContent = 'STORAGE: no credentials saved';
+            captureLog.appendChild(storage);
         }
 
         phishForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Final log entry
+
             const finalLog = document.createElement('div');
-            finalLog.className = "text-red-500 font-bold mt-2";
-            finalLog.innerHTML = `>> CREDENTIALS SAVED TO DB: user_${usernameInput.value}.json`;
+            finalLog.className = 'text-green-300 font-bold mt-2';
+            finalLog.textContent = 'TRAINING COMPLETE: never enter real credentials on an untrusted page.';
             captureLog.appendChild(finalLog);
 
-            // Show "Success" to user (to finish the scam loop)
             setTimeout(() => {
                 successModal.classList.remove('hidden');
                 successModal.classList.add('flex');
@@ -219,7 +221,7 @@
             successModal.classList.add('hidden');
             successModal.classList.remove('flex');
             phishForm.reset();
-            captureLog.innerHTML = '<p class="opacity-50 text-green-300">>> Log cleared. Waiting for new victim...</p>';
+            captureLog.textContent = 'Training log cleared. No credentials were collected.';
         }
 
         // Initialize console
